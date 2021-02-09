@@ -1,0 +1,7 @@
+C:\Users\219610\source\repos\soul.practice\bin\Debug\soul.practice.exe.config
+C:\Users\219610\source\repos\soul.practice\bin\Debug\soul.practice.exe
+C:\Users\219610\source\repos\soul.practice\bin\Debug\soul.practice.pdb
+C:\Users\219610\source\repos\soul.practice\obj\Debug\soul.practice.csprojAssemblyReference.cache
+C:\Users\219610\source\repos\soul.practice\obj\Debug\soul.practice.csproj.CoreCompileInputs.cache
+C:\Users\219610\source\repos\soul.practice\obj\Debug\soul.practice.exe
+C:\Users\219610\source\repos\soul.practice\obj\Debug\soul.practice.pdb
