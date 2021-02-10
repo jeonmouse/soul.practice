@@ -133,9 +133,32 @@ namespace soul.practice
                     break;
             }
         }
-       
-        static void EnterField()
+
+        static void Fight(ref Player player, ref Monster monster)
         {
+            while (true)
+            {
+                // 플레이어 공격
+                monster.hp -= player.attack;
+                if (monster.hp <= 0)
+                {
+                    Console.WriteLine("승리했습니다!");
+                    Console.WriteLine($"남은 체력: {player.hp}");
+                    break;
+                }
+
+                // 몬스터 반격s
+                player.hp -= monster.attack;
+                if (player.hp <= 0)
+                {
+                    Console.WriteLine("패배했습니다!");
+                    break;
+                }
+            }
+        }
+       
+        static void EnterField(ref Player player)
+        { 
             while (true)
             {
                 Console.WriteLine("필드에 접속했습니다!");
@@ -146,10 +169,30 @@ namespace soul.practice
 
                 Console.WriteLine("[1] 전투모드로 돌입");
                 Console.WriteLine("[2] 일정 확률로 마을로 도망");
+
+                string input = Console.ReadLine();
+                if (input == "1")
+                {
+                    Fight(ref player, ref monster);
+                }
+                else if (input == "2")
+                {
+                    Random rand = new Random();
+                    int randValue = rand.Next(0, 101);
+                    if (randValue <= 33)
+                    {
+                        Console.WriteLine("도망치는데 성공했습니다!");
+                        break;
+                    }
+                    else
+                    {
+                        Fight(ref player, ref monster);
+                    }
+                }
             }
         }
 
-        static void EnterGame()
+        static void EnterGame(ref Player player)
         {
             while (true)
             {
@@ -160,7 +203,7 @@ namespace soul.practice
                 string input = Console.ReadLine();
                 if (input == "1")
                 {
-                    EnterField();
+                    EnterField(ref player);
                 }
                 else if (input == "2")
                 {
@@ -180,7 +223,7 @@ namespace soul.practice
                     Player player;
                     CreatePlayer(choice, out player);
 
-                    EnterGame();
+                    EnterGame(ref player);
                 }
                 
             }
